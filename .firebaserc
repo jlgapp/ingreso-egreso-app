@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ingreso-egreso-app-17a77": {
+      "hosting": {
+        "ingresoEgreso": [
+          "ingreso-egreso-app-17a77"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ingreso-egreso-app-17a77"
+  }
+}
