@@ -1,13 +1,10 @@
 <div class="page-body-wrapper full-page-wrapper auth-page">
-  <div
-    class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one"
-  >
+  <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
     <div class="row w-100">
       <div class="col-lg-4 mx-auto">
         <h2 class="text-center mb-4">Registro</h2>
         <div class="auto-form-wrapper">
           <form [formGroup]="registroForm" (ngSubmit)="crearUsuario()">
-            
             <div class="form-group">
               <div class="input-group">
                 <input formControlName="nombre" type="email" class="form-control" placeholder="Nombre" />
@@ -18,7 +15,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="form-group">
               <div class="input-group">
                 <input formControlName="correo" type="email" class="form-control" placeholder="Correo" />
@@ -31,12 +28,7 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="Password"
-                  formControlName = "password"
-                />
+                <input type="password" class="form-control" placeholder="Password" formControlName="password" />
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i *ngIf="registroForm.get('password')?.valid" class="fa fa-check-circle"></i>
@@ -46,18 +38,17 @@
             </div>
 
             <div class="form-group">
-              <button
-                type="submit"
-                class="btn btn-primary submit-btn btn-block"
-                [disabled]="registroForm.invalid"
-              >
+              <button type="submit" class="btn btn-primary submit-btn btn-block" [disabled]="registroForm.invalid"
+                *ngIf="!cargando">
                 Crear cuenta
+              </button>
+              <button [disabled]="true" type="button" class="btn btn-primary submit-btn btn-block" *ngIf="cargando">
+                <i class="fa fa-spin fa-sync"></i>
+                espere
               </button>
             </div>
             <div class="text-block text-center my-3">
-              <span class="text-small font-weight-semibold"
-                >ya tienes una cuenta?</span
-              >
+              <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
               <br />
               <a routerLink="/login" class="text-black text-small">Login</a>
             </div>

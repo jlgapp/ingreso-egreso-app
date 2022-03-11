@@ -31,9 +31,11 @@ export class SidebarComponent implements OnInit {
       }
     });
 
-    this.authService.logAuth().then(() => {
+    this.authService.logAuth()
+    .then(() => {
       Swal.close();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']);      
+
     }).catch(error => {
       Swal.fire({
         icon: 'error',
